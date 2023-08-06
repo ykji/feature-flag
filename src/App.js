@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import FeatureWrapper from "./component/FeatureWrapper";
+import FeatureFlagProvider from "./context/FeatureFlagContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FeatureFlagProvider>
+      <FeatureWrapper featureName={"isFeature1Enabled"}>
+        <h1>Feature 1 is available to you</h1>
+      </FeatureWrapper>
+      <FeatureWrapper featureName={"isFeature2Enabled"}>
+        <h1>Feature 2 is available to you</h1>
+      </FeatureWrapper>
+    </FeatureFlagProvider>
   );
 }
 
